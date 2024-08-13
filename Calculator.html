@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #222;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(4, 4, 2, 2);
+}
+
+.display {
+    background-color: #0e0d0d;
+    color: white;
+    padding: 20px;
+    font-size: 2em;
+    text-align: right;
+    border-bottom: 1px solid #8b8989;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.btn {
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #444;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn:hover {
+    background-color: #666;
+}
+
+.btn:active {
+    background-color: #666;
+}
+
+.btn-num {
+    background-color: #ff5722;
+}
+
+.btn-op {
+    background-color: #f44336;
+}
+
+.btn-op-equal {
+    background-color: #4caf50;
+}
+
+.btn-op.btn-op-equal {
+    background-color: #45a049;
+}
+
+.btn-op-.btn-op-equal {
+    background-color: #388e3c;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display"></div>
+        <div class="buttons">
+            <button class="btn btn-op" onclick="clearDisplay()">C</button>
+            <button class="btn btn-op" onclick="backspace()">←</button>
+            <button class="btn btn-op" onclick="appendToDisplay('.')">.</button>
+            <button class="btn btn-op" onclick="appendToDisplay(Math.PI)">π</button>
+            <button class="btn btn-op" onclick="appendToDisplay('-')">-</button>
+            <button class="btn btn-num" onclick="appendToDisplay('9')">9</button>
+            <button class="btn btn-num" onclick="appendToDisplay('8')">8</button>
+            <button class="btn btn-num" onclick="appendToDisplay('7')">7</button>
+            <button class="btn btn-op" onclick="appendToDisplay('+')">+</button>
+            <button class="btn btn-num" onclick="appendToDisplay('4')">4</button>
+            <button class="btn btn-num" onclick="appendToDisplay('5')">5</button>
+            <button class="btn btn-num" onclick="appendToDisplay('6')">6</button>
+            <button class="btn btn-op" onclick="appendToDisplay('*')">*</button>
+            <button class="btn btn-num" onclick="appendToDisplay('1')">1</button>
+            <button class="btn btn-num" onclick="appendToDisplay('2')">2</button>
+            <button class="btn btn-num" onclick="appendToDisplay('3')">3</button>
+            <button class="btn btn-op" onclick="appendToDisplay('/')">/</button>
+<button class="btn btn-num" onclick="appendToDisplay('00')">00</button>
+<button class="btn btn-num" onclick="appendToDisplay('0')">0</button>
+<button class="btn btn-op-equal" onclick="calculate()">=</button>
+    
+        </div>
+    </div>
+    
+    <script>
+        function appendToDisplay(value) {
+    const display = document.getElementById('display');
+    display.textContent += value;
+}
+
+function clearDisplay() {
+    document.getElementById('display').textContent = '';
+}
+function backspace() {
+    const display = document.getElementById('display');
+    display.textContent = display.textContent.slice(0, -1);
+}
+function calculate() {
+    const display = document.getElementById('display');
+    try {
+        display.textContent = eval(display.textContent);
+    } catch {
+        display.textContent = 'Error';
+    }
+}
+
+    </script>
+</body>
+</html>
