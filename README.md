@@ -1,4 +1,4 @@
-# CodSoft Virtual Internship Projects
+# CodSoft Internship Projects
 
 Welcome to the repository showcasing the projects I completed during my virtual internship at CodSoft. This repository contains the following projects:
 
